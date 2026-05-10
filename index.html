@@ -7,14 +7,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-color: #020617;
+            /* Warna latar belakang hijau gelap/sage tua */
+            background-color: #1a2421; 
             background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+                linear-gradient(to right, rgba(156, 175, 150, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(156, 175, 150, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
         }
-        .glow {
-            box-shadow: 0 0 50px rgba(14, 165, 233, 0.2);
+        .glow-sage {
+            box-shadow: 0 0 50px rgba(156, 175, 150, 0.2);
         }
     </style>
 </head>
@@ -22,28 +23,28 @@
 
     <nav class="flex justify-between items-center px-10 py-6">
         <div class="text-xl font-bold flex items-center gap-2">
-            <span class="text-blue-400">&lt;/&gt;</span> ReyDev
+            <span class="text-[#9caf96]">&lt;/&gt;</span> ReyDev
         </div>
         <div class="hidden md:flex gap-8 text-gray-400">
-            <a href="#" class="hover:text-white">Home</a>
-            <a href="#" class="hover:text-white">About</a>
-            <a href="#" class="hover:text-white">Projects</a>
-            <a href="#" class="hover:text-white">Clients</a>
-            <a href="#" class="hover:text-white">Contact</a>
+            <a href="#" class="hover:text-[#9caf96]">Home</a>
+            <a href="#" class="hover:text-[#9caf96]">About</a>
+            <a href="#" class="hover:text-[#9caf96]">Projects</a>
+            <a href="#" class="hover:text-[#9caf96]">Clients</a>
+            <a href="#" class="hover:text-[#9caf96]">Contact</a>
         </div>
-        <button class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-full font-medium transition">
+        <button class="bg-[#7d8f78] hover:bg-[#9caf96] px-6 py-2 rounded-full font-medium transition text-white">
             Hire Me
         </button>
     </nav>
 
     <main class="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
-        <div class="mb-8 border border-gray-700 bg-gray-900/50 px-4 py-1 rounded-full text-xs text-gray-300 flex items-center gap-2">
-            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        <div class="mb-8 border border-[#4a554a] bg-[#2d3a35]/50 px-4 py-1 rounded-full text-xs text-[#9caf96] flex items-center gap-2">
+            <span class="w-2 h-2 bg-[#9caf96] rounded-full animate-pulse"></span>
             Available for freelance projects
         </div>
 
         <h1 class="text-5xl md:text-7xl font-bold mb-4">
-            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Rey</span>
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#9caf96] to-[#c2d1be]">Rey</span>
         </h1>
         <h2 class="text-4xl md:text-6xl font-bold mb-6">
             Web Developer
@@ -54,18 +55,18 @@
         </p>
 
         <div class="flex flex-col md:flex-row gap-4">
-            <button class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition glow">
+            <button class="bg-[#7d8f78] hover:bg-[#9caf96] text-white px-8 py-3 rounded-full font-semibold transition glow-sage">
                 Lihat Karya Saya
             </button>
-            <button class="border border-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-semibold transition">
+            <button class="border border-[#4a554a] hover:bg-[#2d3a35] text-white px-8 py-3 rounded-full font-semibold transition">
                 Hubungi Saya
             </button>
         </div>
 
         <div class="flex gap-6 mt-16 text-gray-500">
-            <a href="#" class="hover:text-white transition">GitHub</a>
-            <a href="#" class="hover:text-white transition">LinkedIn</a>
-            <a href="#" class="hover:text-white transition">Instagram</a>
+            <a href="#" class="hover:text-[#9caf96] transition">GitHub</a>
+            <a href="#" class="hover:text-[#9caf96] transition">LinkedIn</a>
+            <a href="#" class="hover:text-[#9caf96] transition">Instagram</a>
         </div>
     </main>
 
