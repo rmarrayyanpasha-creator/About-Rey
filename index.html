@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REY - Digital Solutions</title>
+    <title>REY | Digital Solutions Crafted</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
@@ -15,166 +15,82 @@
             overflow-x: hidden;
         }
 
-        /* Background Glow ala Gambar 2 */
+        /* Latar Belakang Mewah Gambar 2 */
         .bg-glow {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
+            background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.15) 0%, rgba(5, 5, 5, 1) 75%);
+            z-index: -2;
+        }
+
+        /* Grid Halus Gambar 1 */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 45px 45px;
             z-index: -1;
         }
 
         /* Animasi Ring Foto Profil */
         .profile-ring {
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
-            animation: pulse-ring 3s infinite;
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.4);
+            animation: pulse-ring 4s infinite;
         }
 
         @keyframes pulse-ring {
-            0% { transform: scale(1); opacity: 0.8; }
+            0%, 100% { transform: scale(1); opacity: 0.8; }
             50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.8; }
         }
 
-        /* Animasi Muncul (Fade In) */
+        /* Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 1s ease-out;
+            transition: all 0.8s ease-out;
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
 <body>
 
     <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
 
-    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-20 py-8 backdrop-blur-md">
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-20 py-8 backdrop-blur-lg border-b border-white/5">
         <div class="text-2xl font-extrabold tracking-tighter">
             REY<span class="text-emerald-500">.</span>
         </div>
-        <div class="hidden md:flex gap-10 text-sm font-medium text-gray-400">
+        <div class="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
             <a href="#home" class="hover:text-emerald-400 transition">Home</a>
             <a href="#about" class="hover:text-emerald-400 transition">About</a>
             <a href="#projects" class="hover:text-emerald-400 transition">Projects</a>
             <a href="#clients" class="hover:text-emerald-400 transition">Clients</a>
             <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
         </div>
-        <a href="#contact" class="bg-emerald-500 hover:bg-emerald-600 text-black px-6 py-2 rounded-full text-sm font-bold transition duration-300">
-            Contact Me
+        <a href="https://wa.me/6281234567890?text=Hello%20Rey%20Im%20interested%20to%20develop%20web%20using%20your%20service" 
+           target="_blank"
+           class="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2 rounded-full text-xs font-black transition transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+            HIRE ME
         </a>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col items-center justify-center pt-20 px-4">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-emerald-500 profile-ring">
-                <img src="https://via.placeholder.com/150" alt="Rey" class="w-full h-full object-cover">
-            </div>
-        </div>
-
-        <p class="text-emerald-500 font-medium tracking-widest text-sm mb-4 uppercase">Welcome to My Portfolio</p>
-        
-        <h1 class="text-5xl md:text-8xl font-extrabold text-center leading-tight mb-4">
-            Digital Solutions<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sage-300">Crafted by Rey</span>
-        </h1>
-
-        <p class="text-gray-400 text-center max-w-xl mb-10 leading-relaxed">
-            Mahasiswa Universitas Gunadarma | Software and AI Technology Enthusiast. 
-            Membangun sistem yang cerdas dan antarmuka yang modern.
-        </p>
-
-        <div class="flex gap-4">
-            <a href="#projects" class="bg-emerald-500 text-black px-8 py-3 rounded-full font-bold hover:bg-emerald-400 transition">Lihat Karya</a>
-            <a href="#contact" class="border border-gray-700 px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition">Hubungi Saya</a>
-        </div>
-    </section>
-
-    <section id="about" class="py-32 px-6 md:px-20 max-w-5xl mx-auto reveal">
-        <h2 class="text-emerald-500 font-mono mb-4">// Tentang Saya</h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-8">Mahasiswa Sistem Informasi & Freelancer aktif.</h3>
-        <p class="text-gray-400 text-lg leading-relaxed mb-6">
-            Saat ini saya menempuh pendidikan di <span class="text-white font-semibold">Universitas Gunadarma</span>. Saya memiliki hasrat besar dalam mengembangkan teknologi web yang tidak hanya berfungsi baik, tapi juga memiliki estetika tinggi.
-        </p>
-        <p class="text-gray-400 text-lg leading-relaxed">
-            Sebagai freelancer, saya membantu bisnis membangun identitas digital melalui kode yang bersih dan performa yang cepat.
-        </p>
-    </section>
-
-    <section id="projects" class="py-32 px-6 md:px-20 reveal">
-        <div class="flex justify-between items-end mb-16">
-            <div>
-                <h2 class="text-emerald-500 font-mono mb-4">// Portofolio</h2>
-                <h3 class="text-3xl md:text-5xl font-bold">Selected Projects</h3>
-            </div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="group cursor-pointer">
-                <div class="h-80 bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 group-hover:border-emerald-500/50 transition duration-500">
-                     <div class="w-full h-full bg-emerald-900/20 flex items-center justify-center text-emerald-500">Project Preview</div>
-                </div>
-                <h4 class="mt-6 text-xl font-bold">E-Commerce System</h4>
-                <p class="text-gray-500">Web Development</p>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="h-80 bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 group-hover:border-emerald-500/50 transition duration-500">
-                    <div class="w-full h-full bg-emerald-900/20 flex items-center justify-center text-emerald-500">Project Preview</div>
-                </div>
-                <h4 class="mt-6 text-xl font-bold">AI Chatbot Integration</h4>
-                <p class="text-gray-500">Artificial Intelligence</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="clients" class="py-32 bg-[#080808]/50 reveal text-center">
-        <h2 class="text-gray-500 uppercase tracking-widest text-xs mb-12">Trusted by students and small businesses</h2>
-        <div class="flex flex-wrap justify-center gap-12 opacity-30 grayscale hover:grayscale-0 transition duration-500">
-            <span class="text-2xl font-bold">Gunadarma</span>
-            <span class="text-2xl font-bold">Freelance.id</span>
-            <span class="text-2xl font-bold">TechCorp</span>
-            <span class="text-2xl font-bold">DevCommunity</span>
-        </div>
-    </section>
-
-    <section id="contact" class="py-32 px-6 text-center reveal">
-        <h2 class="text-4xl md:text-6xl font-bold mb-8">Siap Memulai Proyek?</h2>
-        <p class="text-gray-400 mb-10 text-lg">Jangan ragu untuk menyapa atau berdiskusi tentang ide Anda.</p>
-        <a href="mailto:emailanda@gmail.com" class="text-2xl md:text-4xl font-bold text-emerald-500 underline hover:text-emerald-400 transition">
-            rey.dev@contact.com
-        </a>
-        
-        <div class="flex justify-center gap-8 mt-20 text-gray-500">
-            <a href="#" class="hover:text-emerald-500 transition">Instagram</a>
-            <a href="#" class="hover:text-emerald-500 transition">LinkedIn</a>
-            <a href="#" class="hover:text-emerald-500 transition">GitHub</a>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center text-gray-600 text-sm border-t border-gray-900">
-        © 2024 Crafted by Rey. 
-    </footer>
-
-    <script>
-        // Animasi reveal saat scroll
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        // Jalankan sekali saat load
-        reveal();
-    </script>
-</body>
-</html>
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center pt-20
