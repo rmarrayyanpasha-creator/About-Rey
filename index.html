@@ -7,12 +7,13 @@
     <style>
         /* --- PALET WARNA SESUAI FOTO --- */
         :root {
-            --bg-light: #E1EDCE;    /* Hijau pastel pucat */
-            --yellow-light: #EBE574;/* Kuning muda */
+            --bg-light: #E1EDCE;     /* Hijau pastel pucat */
+            --yellow-light: #EBE574; /* Kuning muda */
             --yellow-bright: #FFD223;/* Kuning terang */
             --orange: #FC913A;       /* Oranye */
             --coral-red: #F64C50;    /* Merah coral dominan */
             --dark-text: #2B2B2B;
+            --white: #FFFFFF;
         }
 
         /* --- RESET & BASE STYLE --- */
@@ -43,14 +44,14 @@
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
 
         /* --- HERO SECTION --- */
         header {
             background: linear-gradient(135deg, var(--coral-red), var(--orange), var(--yellow-bright));
-            height: 100vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,97 +59,108 @@
             text-align: center;
             color: white;
             padding: 20px;
-            position: relative;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInDown 1.2s ease-out;
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+            animation: fadeInDown 1s ease-out;
         }
 
         header p {
             font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            animation: fadeInDown 1.5s ease-out;
+            margin-bottom: 35px;
+            max-width: 700px;
+            animation: fadeInDown 1.3s ease-out;
+            line-height: 1.6;
         }
 
-        /* Tombol Utama Interaktif */
         .btn-explore {
             background-color: var(--yellow-light);
             color: var(--dark-text);
-            padding: 12px 30px;
+            padding: 14px 35px;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
-            animation: fadeInUp 1.8s ease-out;
+            animation: fadeInUp 1.5s ease-out;
         }
 
         .btn-explore:hover {
-            background-color: white;
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background-color: var(--white);
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
         }
 
-        /* --- MAIN CONTENT --- */
+        /* --- MAIN CONTAINER --- */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 60px 20px;
         }
 
-        /* Tab / Bagian yang Dapat Diklik (Interaktif) */
+        h2.section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--coral-red);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--orange);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- SECTION 1: INFO UTAMA (TABS) --- */
         .menu-tabs {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease;
+            margin-bottom: 30px;
         }
 
         .tab-btn {
-            background-color: white;
+            background-color: var(--white);
             border: 2px solid var(--orange);
             color: var(--orange);
-            padding: 10px 25px;
+            padding: 12px 28px;
             font-size: 1rem;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .tab-btn.active, .tab-btn:hover {
             background-color: var(--orange);
-            color: white;
+            color: var(--white);
             transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(252, 145, 58, 0.3);
+            box-shadow: 0 5px 15px rgba(252, 145, 58, 0.3);
         }
 
-        /* Konten Tab */
         .tab-content {
             display: none;
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--coral-red);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.5s ease;
+            border-left: 6px solid var(--coral-red);
+            animation: fadeInUp 0.5s ease forwards;
         }
 
         .tab-content.active {
             display: block;
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .tab-content h3 {
@@ -158,52 +170,144 @@
         }
 
         .tab-content p {
-            line-height: 1.6;
+            line-height: 1.7;
             font-size: 1.1rem;
         }
 
-        /* --- CARDS SECTION (REKOMENDASI) --- */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+        /* --- SECTION 2: DAFTAR MENU INTERAKTIF --- */
+        .menu-section {
+            margin-top: 80px;
         }
 
-        .card {
-            background-color: white;
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background-color: var(--white);
+            padding: 20px;
             border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--orange);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .menu-info h4 {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            margin-bottom: 5px;
+        }
+
+        .menu-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .menu-price {
+            font-weight: bold;
+            color: var(--coral-red);
+            font-size: 1.1rem;
+        }
+
+        /* --- SECTION 3: ACORDION FAQ (BISA DIKLIK) --- */
+        .faq-section {
+            margin-top: 80px;
+        }
+
+        .accordion {
+            background-color: var(--white);
+            color: var(--dark-text);
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .active-acc, .accordion:hover {
+            background-color: var(--yellow-light);
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: var(--white);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 15px;
+        }
+
+        .panel p {
+            padding: 15px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* --- SECTION 4: TESTIMONI --- */
+        .testimonial-section {
+            margin-top: 80px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testi-card {
+            background-color: var(--white);
             padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
             border-bottom: 4px solid var(--yellow-bright);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        .testi-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
 
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: inline-block;
-            animation: pulse 2s infinite ease-in-out;
+        .testi-user {
+            font-weight: bold;
+            color: var(--orange);
+            font-size: 0.95rem;
         }
 
         /* --- FOOTER --- */
         footer {
             background-color: var(--dark-text);
-            color: white;
+            color: var(--white);
             text-align: center;
-            padding: 30px;
-            margin-top: 60px;
+            padding: 40px 20px;
+            margin-top: 80px;
         }
 
-        footer p a {
-            color: var(--yellow-light);
-            text-decoration: none;
+        footer p {
+            font-size: 0.95rem;
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -211,76 +315,170 @@
 
     <header>
         <h1>Kopi Kotak Depok</h1>
-        <p>Menyajikan ruang santai *outdoor* yang luas dengan vibes senja yang estetik di tengah kota Depok.</p>
-        <a href="#eksplor" class="btn-explore">Eksplor Sekarang</a>
+        <p>Menyajikan ruang santai *outdoor* yang luas dengan vibes senja yang estetik. Tempat paling pas di Depok buat nugas bareng temen atau sekadar melepas penat.</p>
+        <a href="#eksplor" class="btn-explore">Mulai Eksplorasi</a>
     </header>
 
     <div class="container" id="eksplor">
         
         <div class="menu-tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'tentang')">Tentang</button>
-            <button class="tab-btn" onclick="openTab(event, 'suasana')">Suasana</button>
+            <button class="tab-btn active" onclick="openTab(event, 'tentang')">Tentang Kami</button>
+            <button class="tab-btn" onclick="openTab(event, 'suasana')">Fasilitas</button>
             <button class="tab-btn" onclick="openTab(event, 'lokasi')">Lokasi & Jam</button>
         </div>
 
         <div id="tentang" class="tab-content active">
             <h3>Tentang Kopi Kotak</h3>
-            <p>Kopi Kotak Depok adalah salah satu tempat nongkrong favorit mahasiswa dan warga Depok. Mengusung konsep minimalis modern dengan area *open space* yang luas, tempat ini sangat cocok buat kamu yang ingin nugas, ngobrol santai, atau sekadar menikmati kopi di sore hari.</p>
+            <p>Kopi Kotak Depok menjadi salah satu *top of mind* tempat nongkrong favorit. Mengusung konsep industrial minimalis dengan dominasi area terbuka (*open space*), tempat ini menawarkan angin segar di tengah hiruk-pikuk kota Depok. Sangat ramah di kantong mahasiswa namun tetap memberikan kualitas rasa dan kenyamanan maksimal.</p>
         </div>
 
         <div id="suasana" class="tab-content">
-            <h3>Vibes & Suasana</h3>
-            <p>Tempat ini terkenal dengan area *rooftop* dan *outdoor*-nya yang ciamik. Kalau datang ke sini pas sore menjelang malam, kamu bakal disuguhkan dengan lampu-lampu gantung yang estetik dipadukan dengan langit senja—persis seperti palet warna hangat di website ini!</p>
+            <h3>Fasilitas yang Tersedia</h3>
+            <p>Kami memastikan kunjunganmu nyaman dengan berbagai fasilitas penunjang:</p>
+            <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                <li>Area *Outdoor* & *Rooftop* yang luas untuk menikmati senja.</li>
+                <li>Koneksi Wi-Fi super cepat, cocok untuk *WFC (Work From Cafe)* atau nugas kuliah.</li>
+                <li>Colokan listrik melimpah di setiap sudut meja.</li>
+                <li>Area parkir luas untuk motor dan mobil, serta Musholla yang bersih.</li>
+            </ul>
         </div>
 
         <div id="lokasi" class="tab-content">
             <h3>Lokasi & Jam Operasional</h3>
-            <p><strong>Alamat:</strong> Jl. Margonda Raya No. 123, Depok (Dekat area kampus).</p>
-            <p style="margin-top: 10px;"><strong>Jam Buka:</strong> Setiap Hari (10.00 - 22.00 WIB)</p>
+            <p><strong>Alamat:</strong> Jl. Margonda Raya, Pondok Cina, Kec. Beji, Kota Depok (Sangat strategis dan mudah diakses dari stasiun maupun area kampus terdekat).</p>
+            <p style="margin-top: 12px;"><strong>Jam Operasional:</strong></p>
+            <p>• Senin - Jumat: 10.00 - 23.00 WIB</p>
+            <p>• Sabtu - Minggu: 09.00 - 24.00 WIB</p>
         </div>
 
-        <div class="features">
-            <div class="card">
-                <span class="card-icon">☕</span>
-                <h4>Kopi Berkualitas</h4>
-                <p>Pilihan menu kopi dan non-kopi yang pas di kantong mahasiswa.</p>
+
+        <div class="menu-section">
+            <h2 class="section-title">Menu Jagoan Kami</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-info">
+                        <h4>Es Kopi Kotak</h4>
+                        <p>Kopi susu gula aren khas racikan rumah.</p>
+                    </div>
+                    <div class="menu-price">Rp 22k</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-info">
+                        <h4>Caramel Macchiato</h4>
+                        <p>Perpaduan espresso, susu, dan sirup karamel.</p>
+                    </div>
+                    <div class="menu-price">Rp 26k</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-info">
+                        <h4>Matcha Latte</h4>
+                        <p>Teh hijau Jepang premium dengan susu segar.</p>
+                    </div>
+                    <div class="menu-price">Rp 24k</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-info">
+                        <h4>Croissant Almond</h4>
+                        <p>Pastry renyah dengan taburan kacang almond.</p>
+                    </div>
+                    <div class="menu-price">Rp 20k</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-info">
+                        <h4>Kentang Goreng Keju</h4>
+                        <p>Camilan asin pas untuk nemenin ngobrol.</p>
+                    </div>
+                    <div class="menu-price">Rp 18k</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-info">
+                        <h4>Dimsum Ayam</h4>
+                        <p>Isi 4 pcs, disajikan hangat dengan saus asam pedas.</p>
+                    </div>
+                    <div class="menu-price">Rp 15k</div>
+                </div>
             </div>
-            <div class="card">
-                <span class="card-icon">🍃</span>
-                <h4>Area Outdoor Luas</h4>
-                <p>Nggak perlu takut sumpek, sirkulasi udara segar terjaga maksimal.</p>
+        </div>
+
+
+        <div class="faq-section">
+            <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+            
+            <button class="accordion">Apakah ada area indoor ber-AC? <span>+</span></button>
+            <div class="panel">
+                <p>Ada! Meskipun Kopi Kotak terkenal dengan area outdoornya yang luas, kami tetap menyediakan area indoor ber-AC yang tenang bagi kamu yang butuh fokus ekstra saat nugas atau rapat kecil.</p>
             </div>
-            <div class="card">
-                <span class="card-icon">⚡</span>
-                <h4>Fasilitas Nugas</h4>
-                <p>Dilengkapi dengan akses Wi-Fi dan colokan di banyak sudut meja.</p>
+
+            <button class="accordion">Apakah harganya cocok untuk kantong mahasiswa? <span>+</span></button>
+            <div class="panel">
+                <p>Sangat cocok! Range harga menu minuman dan makanan kami berkisar antara Rp 15.000 hingga Rp 30.000 saja.</p>
+            </div>
+
+            <button class="accordion">Bisa pesan tempat untuk acara komunitas? <span>+</span></button>
+            <div class="panel">
+                <p>Bisa banget. Kami menerima reservasi tempat untuk acara komunitas, ulang tahun, atau sekadar kumpul besar. Kamu bisa langsung menghubungi admin kami via Instagram resmi.</p>
+            </div>
+        </div>
+
+
+        <div class="testimonial-section">
+            <h2 class="section-title">Kata Mereka</h2>
+            <div class="testimonial-grid">
+                <div class="testi-card">
+                    <p class="testi-text">"Tempat andalan kalau udah bosen nugas di kosan. Wi-Fi-nya kenceng, kopinya enak, dan kalau sore view senjanya dapet banget!"</p>
+                    <p class="testi-user">— Rian, Mahasiswa Depok</p>
+                </div>
+                <div class="testi-card">
+                    <p class="testi-text">"Suka banget sama area outdoor-nya yang luas. Dateng ke sini jam 5 sore pas lampu gantungnya mulai nyala itu estetik parah."</p>
+                    <p class="testi-user">— Amel, Digital Nomad</p>
+                </div>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Kopi Kotak Depok Fan Page. Dibuat untuk tugas GitHub Pages.</p>
+        <p>&copy; 2026 Kopi Kotak Depok Fan Page. Created for GitHub Pages Presentation.</p>
     </footer>
 
     <script>
+        // JS untuk Tab Menu
         function openTab(evt, tabName) {
-            // Sembunyikan semua tab-content
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].classList.remove("active");
             }
-
-            // Hapus kelas 'active' dari semua tombol
             tablinks = document.getElementsByClassName("tab-btn");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
-
-            // Tampilkan tab yang diklik dan tambahkan kelas 'active' pada tombolnya
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
+        }
+
+        // JS untuk Accordion (FAQ)
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active-acc");
+                var span = this.querySelector("span");
+                
+                // Animasi ganti tanda + dan -
+                if (span.innerHTML === "+") {
+                    span.innerHTML = "−";
+                } else {
+                    span.innerHTML = "+";
+                }
+
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
         }
     </script>
 </body>
