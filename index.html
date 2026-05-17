@@ -3,41 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer - Rey</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Kopi Kotak Depok - Tempat Nongkrong Estetik</title>
+    <style>
+        /* --- PALET WARNA SESUAI FOTO --- */
+        :root {
+            --bg-light: #E1EDCE;    /* Hijau pastel pucat */
+            --yellow-light: #EBE574;/* Kuning muda */
+            --yellow-bright: #FFD223;/* Kuning terang */
+            --orange: #FC913A;       /* Oranye */
+            --coral-red: #F64C50;    /* Merah coral dominan */
+            --dark-text: #2B2B2B;
+        }
+
+        /* --- RESET & BASE STYLE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMASI KEYFRAMES --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            background: linear-gradient(135deg, var(--coral-red), var(--orange), var(--yellow-bright));
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        /* Tombol Utama Interaktif */
+        .btn-explore {
+            background-color: var(--yellow-light);
+            color: var(--dark-text);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.8s ease-out;
+        }
+
+        .btn-explore:hover {
+            background-color: white;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* --- MAIN CONTENT --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Tab / Bagian yang Dapat Diklik (Interaktif) */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .tab-btn {
+            background-color: white;
+            border: 2px solid var(--orange);
+            color: var(--orange);
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--orange);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(252, 145, 58, 0.3);
+        }
+
+        /* Konten Tab */
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--coral-red);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tab-content h3 {
+            color: var(--coral-red);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .tab-content p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* --- CARDS SECTION (REKOMENDASI) --- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid var(--yellow-bright);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark-text);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        footer p a {
+            color: var(--yellow-light);
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#hire" class="hire-button">Hire Me</a></li>
-            </ul>
-        </nav>
+        <h1>Kopi Kotak Depok</h1>
+        <p>Menyajikan ruang santai *outdoor* yang luas dengan vibes senja yang estetik di tengah kota Depok.</p>
+        <a href="#eksplor" class="btn-explore">Eksplor Sekarang</a>
     </header>
 
-    <main id="home">
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Picture">
-            <h1>Hi, I'm <span class="highlight">Rey</span></h1>
-            <h2>Web Developer</h2>
-            <p>Digital Solutions Crafted</p>
-            <p>Mahasiswa Universitas Gundarma | Software and AI Technology</p>
-            <a href="#projects" class="portfolio-button">Lihat Karya Saya</a>
-            <a href="#contact" class="contact-button">Hubungi Saya</a>
+    <div class="container" id="eksplor">
+        
+        <div class="menu-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'tentang')">Tentang</button>
+            <button class="tab-btn" onclick="openTab(event, 'suasana')">Suasana</button>
+            <button class="tab-btn" onclick="openTab(event, 'lokasi')">Lokasi & Jam</button>
         </div>
-        <p class="availability">Available for freelance projects</p>
-    </main>
+
+        <div id="tentang" class="tab-content active">
+            <h3>Tentang Kopi Kotak</h3>
+            <p>Kopi Kotak Depok adalah salah satu tempat nongkrong favorit mahasiswa dan warga Depok. Mengusung konsep minimalis modern dengan area *open space* yang luas, tempat ini sangat cocok buat kamu yang ingin nugas, ngobrol santai, atau sekadar menikmati kopi di sore hari.</p>
+        </div>
+
+        <div id="suasana" class="tab-content">
+            <h3>Vibes & Suasana</h3>
+            <p>Tempat ini terkenal dengan area *rooftop* dan *outdoor*-nya yang ciamik. Kalau datang ke sini pas sore menjelang malam, kamu bakal disuguhkan dengan lampu-lampu gantung yang estetik dipadukan dengan langit senja—persis seperti palet warna hangat di website ini!</p>
+        </div>
+
+        <div id="lokasi" class="tab-content">
+            <h3>Lokasi & Jam Operasional</h3>
+            <p><strong>Alamat:</strong> Jl. Margonda Raya No. 123, Depok (Dekat area kampus).</p>
+            <p style="margin-top: 10px;"><strong>Jam Buka:</strong> Setiap Hari (10.00 - 22.00 WIB)</p>
+        </div>
+
+        <div class="features">
+            <div class="card">
+                <span class="card-icon">☕</span>
+                <h4>Kopi Berkualitas</h4>
+                <p>Pilihan menu kopi dan non-kopi yang pas di kantong mahasiswa.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🍃</span>
+                <h4>Area Outdoor Luas</h4>
+                <p>Nggak perlu takut sumpek, sirkulasi udara segar terjaga maksimal.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">⚡</span>
+                <h4>Fasilitas Nugas</h4>
+                <p>Dilengkapi dengan akses Wi-Fi dan colokan di banyak sudut meja.</p>
+            </div>
+        </div>
+
+    </div>
 
     <footer>
-        <div class="social-media">
-            <a href="#">GitHub</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Instagram</a>
-        </div>
+        <p>&copy; 2026 Kopi Kotak Depok Fan Page. Dibuat untuk tugas GitHub Pages.</p>
     </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Sembunyikan semua tab-content
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Hapus kelas 'active' dari semua tombol
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // Tampilkan tab yang diklik dan tambahkan kelas 'active' pada tombolnya
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
